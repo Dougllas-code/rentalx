@@ -1,4 +1,4 @@
-import csvParse from "csv-parse";
+import { parse } from "csv-parse";
 import fs from "fs";
 
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
@@ -16,7 +16,7 @@ class ImportCategoryUseCase {
       const stream = fs.createReadStream(file.path);
       const categories: IImportCategory[] = [];
 
-      const parseFile = csvParse();
+      const parseFile = parse();
       stream.pipe(parseFile);
 
       parseFile
