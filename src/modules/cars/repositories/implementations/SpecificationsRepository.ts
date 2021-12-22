@@ -11,7 +11,6 @@ class SpecificationsRepository implements ISpecificationsRepository {
     this.specifications = [];
   }
 
-  // ----------------------- CREATE ---------------------- //
   create({ name, description }: ICreateSpecificationDTO): void {
     const specification = new Specification();
 
@@ -23,7 +22,6 @@ class SpecificationsRepository implements ISpecificationsRepository {
 
     this.specifications.push(specification);
   }
-  // ----------------------- FIND NAME ---------------------- //
   findByName(name: string): Specification {
     const specification = this.specifications.find(
       (specification) => specification.name === name
