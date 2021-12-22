@@ -11,17 +11,14 @@ const upload = multer({
   dest: "./tmp",
 });
 
-// --------------------- POST - CATEGORIES --------------------- //
 categoriesRoutes.post("/", (request, response) => {
   return createCategoryController.handle(request, response);
 });
 
-// --------------------- GET - CATEGORIES --------------------- //
 categoriesRoutes.get("/", (request, response) => {
   return listCategoriesController.handle(request, response);
 });
 
-// ----------------------- POST - UPLOAD ---------------------- //
 categoriesRoutes.post("/import", upload.single("file"), (request, response) => {
   return importCategoryController.handle(request, response);
 });
